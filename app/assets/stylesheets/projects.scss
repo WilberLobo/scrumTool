@@ -1,0 +1,49 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+th{
+background:brown;
+padding:15px 40px;
+font-size:2em;
+color:white;
+}
+table,tr,td{
+padding:10px 40px;
+
+//border:1px solid brown;
+}
+input{
+margin-left:185px;
+}
+textarea{
+margin-left:150px;
+width:400px;
+height:200px;
+}
+.field{
+color:brown;
+margin-left:150px;
+}
+.actions{
+margin-left:200px;
+}
+
+.edit_heading{
+text-align:center;
+text-decoration:underline;
+color:brown;
+}
+
+.title{
+margin-left:150px;
+//margin-right:300px;
+color:brown;
+font-size:2em;
+}
+.anwser{
+margin-left:200px;
+}

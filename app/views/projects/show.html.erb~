@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+	
+<%= link_to(" View user Stories",:controller =>'user_stories' ,:action => 'index' ) %> |
+<%= link_to(" View sprints",:controller =>'sprints' ,:action => 'index' ) %> |
+<%= link_to(" Add members",:controller =>'members' ,:action => 'addMembers' ) %> |
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

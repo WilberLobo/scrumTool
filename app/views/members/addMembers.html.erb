@@ -1,0 +1,32 @@
+<form action="/members/addmember" method="post">
+  <strong>Add task: </strong>
+:user_id, :project_id
+  <select name="member[user_id]" >
+    <optgroup label="--select--">
+    <% @memebers.each do |member| %>
+      <option value="<%= member.id %>"><%= member.email %></option>
+    <% end %>
+    </optgroup>
+  </select>
+Project ID: </td><td><input type="text" value="<%= session[:current_project] %>" name="member[projects_id]" readonly/>
+
+  <input type="submit" value="Add members"/>
+</form>
+
+<br/><br/>
+<table>
+  <tr>
+    <td><strong>Members:</strong></td>
+  </tr>
+  <% @member.each do |task| %>
+    <tr>
+      <td style="border:1px green solid">
+        <p>memebers name: <%= task.email %></p>
+
+      </td>
+<td>
+<%= link_to("remove member", { :action => 'removeMember' ,:memberId => task.id,:id=>session[:current_project]}) %>
+</td>
+    </tr>
+  <% end %>
+</table>

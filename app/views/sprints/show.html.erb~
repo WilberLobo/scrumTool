@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong class="heading">Name:</strong>
+  <%= @sprint.name %>
+</p>
+
+<p>
+  <strong class="heading">Duration:</strong>
+  <%= @sprint.duration %>
+</p>
+
+<p>
+  <strong class="heading">Start date:</strong>
+  <%= @sprint.start_date %>
+</p>
+
+<p>
+  <strong class="heading">End date:</strong>
+  <%= @sprint.end_date %>
+</p>
+
+<p>
+  <strong class="heading">Project:</strong>
+  <%= @sprint.project_id %>
+</p>
+
+
+<%= link_to("Sprint backlog", {:controller => 'sprints', :action => 'sprintbacklog' ,:id=>session[:current_sprint]}) %>
+|
+<%= link_to 'Edit', edit_sprint_path(@sprint) %> |
+<%= link_to 'Back', sprints_path %>
+
+<br/>
+<br/>
+
+
+<form action="/sprints/addnewtasktosprint" method="post">
+  <strong>Add task: </strong>
+  <select name="tasktoadd" >
+    <optgroup label="--select--">
+    <% @sprinttaskscanadd.each do |task| %>
+      <option value="<%= task.id %>"><%= task.name %></option>
+    <% end %>
+    </optgroup>
+  </select>
+  <input type="submit" value="Add task"/>
+</form>
+
+<br/><br/>
+<table>
+  <tr>
+    <td><strong>TASKS</strong></td>
+  </tr>
+  <% @sprinttasks.each do |task| %>
+    <tr>
+      <td style="border:1px green solid">
+        <p>Task name: <%= task.name %></p>
+        <p>User story ID: <%= task.user_story_id %></p>
+      </td>
+<td>
+<%= link_to("remove tasks", { :action => 'removeTask' ,:taskId => task.id,:id=>session[:current_sprint]}) %>
+</td>
+    </tr>
+  <% end %>
+</table>

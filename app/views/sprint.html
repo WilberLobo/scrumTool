@@ -1,0 +1,130 @@
+<html>
+<head>
+
+<style>
+div:focus {  
+  outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+
+div {
+
+ border: 2px solid #4195fc; /* some kind of blue border */
+ border-radius: 4px;
+
+
+    /* make it glow! */
+    -webkit-box-shadow: 0px 0px 4px #4195fc;
+       -moz-box-shadow: 0px 0px 4px #4195fc;
+            box-shadow: 0px 0px 4px #4195fc; /* some variation of blue for the shadow */
+			color:black;
+}
+
+
+
+</style>
+
+<script>
+function element(creation)
+{
+var div = document.createElement('div');
+    div.id= 'test'+creation;
+	div.style.width = "100px";
+	div.style.height = "100px";
+	//div.style.background = "red";
+	div.style.color = "white"
+	div.innerHTML = "Hello"+creation;
+	div.style.float= "left";
+	document.getElementById('div1').appendChild(div);
+	
+}
+
+
+</script>
+</head>
+<body>
+<div style="height:70%; width:30%;  float:left; display:inline;" id="div1" onClick="selected(event)">
+
+  <script>
+  for(creation=0;creation<3;creation++)
+  {
+  element(creation);
+  }
+  var curr="";
+  
+  function selected(event)
+  {
+  if(curr!="")
+	{
+	  document.getElementById(curr).style.backgroundColor="white";;
+	}
+  curr=event.target.id;
+    
+   if(event.target.id=="div1")
+   {
+   }
+   else
+   {
+     document.getElementById(event.target.id).style.backgroundColor="green";;
+   }
+   
+  }
+  
+  function right()
+{
+		   var childs = document.getElementById("div1").childNodes.length;
+		 for(counter=0;counter<=childs;counter++)
+		   {
+		    
+		      if(document.getElementById("div1").childNodes[counter].nodeName == 'DIV')
+			     {
+				    if(document.getElementById("div1").childNodes[counter].style.backgroundColor == 'green')
+					   {
+					      document.getElementById('div2').appendChild(document.getElementById("div1").childNodes[counter]);
+					   }
+				 }
+		   }  
+}
+  
+function left()
+{
+		   var childs = document.getElementById("div2").childNodes.length;
+		 for(counter=0;counter<=childs;counter++)
+		   {
+		    
+		      if(document.getElementById("div2").childNodes[counter].nodeName == 'DIV')
+			     {
+				    if(document.getElementById("div2").childNodes[counter].style.backgroundColor == 'green')
+					   {
+					      document.getElementById('div1').appendChild(document.getElementById("div2").childNodes[counter]);
+					   }
+				 }
+		   }  
+}  
+  
+  
+  </script>
+
+</div>
+
+<input type="button" style="float:left" value="right" onClick="right()">  </input>
+
+<input type="button" style="float:left; display:block;"  value="left" onClick="left()">  </input>
+
+
+
+<div id="div2" style="height:70%; width:30%; float:left; display:inline;" onClick="selected(event)">
+
+
+
+</div>
+
+<script>
+
+
+</script>
+
+</body>
+</html>

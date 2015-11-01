@@ -1,0 +1,5 @@
+class Task < ActiveRecord::Base
+belongs_to:members
+belongs_to:sprints
+belongs_to:userStories
+end

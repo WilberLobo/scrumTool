@@ -1,0 +1,25 @@
+
+
+  <% if @user_story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_story.errors.count, "error") %> prohibited this user_story from being saved:</h2>
+
+      <ul>
+      <% @user_story.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<h1>New User Story</h1>
+ 
+<form action="/user_stories/create" method="post">
+<table>
+
+	<tr><td>name: </td><td><textarea name="user_story[name]"></textarea></td></tr>
+	<tr><td>description: </td><td><textarea name="user_story[description]"></textarea></td></tr>
+	
+	<tr><td colspan=2><input type="submit" name="commit" value="Create story"/></td></tr>
+</table>
+
+<%= link_to 'Back', user_stories_path %>

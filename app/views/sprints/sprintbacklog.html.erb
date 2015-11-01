@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+
+<h2 class="title1">Sprint Backlog</h2>
+
+
+
+
+<div id="main_div" style="width:90%; min-height:90%; border:1px solid grey;">
+
+	<div id="to_do_div" style="float:left; clear:left; width:30%; min-height:85%; border:1px solid black; margin-left:2%;">
+		<table>
+			<% @count=1 %>
+			<% @usertaskstodo.each do |task| %>
+			<tbody>
+			<tr>
+				<td colspan=2 style="border-top: 2px solid #000;">
+					(<%= @count %>)
+					<% @count+=1 %>
+					
+					<span style="float:right;  margin: auto 5px; ">
+						<%= link_to("Change To Doing", {:action => 'backlogChangeToDoing', :taskid => task.id,:id=>session[:current_sprint]}, :class => 'action backlogChangeToDoing' ) %>
+					</span>
+
+				</td>
+			</tr>
+			<tr>
+				<td>Task name: </td>
+				<td><%= task.name %></td>
+			</tr>
+			<tr>
+				<td>Status: </td>
+				<td><%= task.status %></td>
+			</tr>
+			
+			</tbody>
+			<% end %>
+		</table>
+	</div>
+
+	<div id="doing_div" style="float:left; width:30%; min-height:85%; border:1px solid black; margin-left:2%;">
+		<table>
+			<% @count=1 %>
+			<% @usertasksdoing.each do |task| %>
+			<tbody>
+			<tr>
+				<td colspan=2 style="border-top: 2px solid #000;">
+					(<%= @count %>)
+					<% @count+=1 %>
+					
+
+					<span style="float:right;  margin: auto 5px; ">
+							<%= link_to("Change To Done", {:action => 'backlogChangeToDone', :taskid => task.id,:id=>session[:current_sprint]}, :class => 'action backlogChangeToDone' ) %>
+					</span>
+
+					<span style="float:right;  margin: auto 5px; ">
+						<%= link_to("Change To Do ", {:action => 'backlogChangeToDo', :taskid => task.id,:id=>session[:current_sprint]}, :class => 'action backlogChangeToDo' ) %>
+					</span>
+					
+				</td>
+			</tr>
+			<tr>
+				<td>Task name: </td>
+				<td><%= task.name %></td>
+			</tr>
+			<tr>
+				<td>Status: </td>
+				<td><%= task.status %></td>
+			</tr>
+			
+			</tbody>
+			<% end %>
+		</table>
+	</div>
+
+	<div id="done_div"style="float:left; clear:right; width:30%; min-height:85%; border:1px solid grey;" style="width:90%; min-height:90%; border:1px solid black; margin-left:2%;">
+		<table>
+			<% @count=1 %>
+			<% @usertasksdone.each do |task| %>
+			<tbody>
+			<tr>
+				<td colspan=2 style="border-top: 2px solid #000;">
+					(<%= @count %>)
+					<% @count+=1 %>
+					
+					<span style="float:right;  margin: auto 5px; ">
+						<%= link_to("Change To Doing ", {:action => 'backlogChangeToDoing', :taskid => task.id,:id=>session[:current_sprint]}, :class => 'action backlogChangeToDoing' ) %>
+					</span>
+
+					<span style="float:right;  margin: auto 5px; ">
+							<%= link_to("Change To Do", {:action => 'backlogChangeToDo', :taskid => task.id,:id=>session[:current_sprint]}, :class => 'action backlogChangeToDo' ) %>
+					</span>
+					
+				</td>
+			</tr>
+			<tr>
+				<td>Task name: </td>
+				<td><%= task.name %></td>
+			</tr>
+			<tr>
+				<td>Status: </td>
+				<td><%= task.status %></td>
+			</tr>
+			
+			</tbody>
+			<% end %>
+		</table>
+	</div>
+
+</div>

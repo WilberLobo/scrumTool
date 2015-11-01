@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @user_story.id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @user_story.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @user_story.description %>
+</p>
+
+<p>
+  <strong>Projectid:</strong>
+  <%= @user_story.project_id %>
+</p>
+
+
+
+
+<%= link_to(" View tasks",:controller =>'tasks' ,:action => 'index' ) %>|
+
+<%= link_to(" View sprints",:controller =>'sprints' ,:action => 'index' ) %>|
+
+<%= link_to 'Edit', edit_user_story_path(@user_story) %> |
+<%= link_to 'Back', user_stories_path %>

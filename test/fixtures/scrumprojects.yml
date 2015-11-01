@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: 
+  id: 1
+  name: Leaf Pattern Recognition
+  description: Identify leaves based on the leaf pattern
+  budget: Rs. 15000.00/-
+
+two: 
+  id: 2
+  name: Email System for Blinds
+  description: Voice-based Email App for the use of visually-impaired
+  budget: Rs. 43000.00/-
